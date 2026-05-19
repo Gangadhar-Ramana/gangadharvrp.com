@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gangadhar V. R. Pinapatruni | Bio-Inspired Fluid Dynamics Researcher</title>
+  <meta name="description" content="Research portfolio of Gangadhar V. R. Pinapatruni, PMRF and Ph.D. researcher in bio-inspired aerodynamics, tubercle airfoils, flapping wings, and vortex dynamics.">
+  <style>
+    :root {
+      --ink: #102027;
+      --muted: #5b6a72;
+      --line: #d9e1e5;
+      --paper: #f8faf9;
+      --white: #ffffff;
+      --deep: #062938;
+      --teal: #007c89;
+      --blue: #0b6fb3;
+      --gold: #b07b2a;
+      --rust: #a7442e;
+      --shadow: 0 18px 50px rgba(10, 35, 45, 0.12);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.6;
+    }
+
+    img, video {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 12px;
+      background: var(--white);
+      padding: 10px 14px;
+      z-index: 999;
+    }
+
+    .skip-link:focus {
+      left: 12px;
+    }
+
+    .site-nav {
+      position: fixed;
+      inset: 0 0 auto;
+      height: 64px;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5vw;
+      background: rgba(6, 41, 56, 0.92);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(14px);
+    }
+
+    .brand {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 750;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+
+    .brand span {
+      color: #96d8e0;
+      font-weight: 520;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      color: rgba(255,255,255,0.78);
+      font-size: 0.86rem;
+      font-weight: 650;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus {
+      color: var(--white);
+    }
+
+    .hero {
+      min-height: 92vh;
+      position: relative;
+      display: grid;
+      align-items: end;
+      padding: 112px 5vw 52px;
+      color: var(--white);
+      overflow: hidden;
+      background: var(--deep);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(6, 41, 56, 0.94) 0%, rgba(6, 41, 56, 0.74) 42%, rgba(6, 41, 56, 0.25) 100%),
+        url("Highlight_image.PNG") center / cover no-repeat;
+      transform: scale(1.01);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 120px;
+      background: linear-gradient(180deg, rgba(248,250,249,0), var(--paper));
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1240px;
+      width: 100%;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.62fr);
+      gap: 42px;
+      align-items: end;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 12px;
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.08);
+      color: #a8e8ef;
+      font-size: 0.76rem;
+      font-weight: 760;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      max-width: 900px;
+      margin: 22px 0 18px;
+      font-size: clamp(2.75rem, 7.8vw, 6.8rem);
+      line-height: 0.94;
+      letter-spacing: 0;
+    }
+
+    .hero h1 span {
+      color: #9be0e7;
+    }
+
+    .hero-lede {
+      max-width: 780px;
+      margin: 0;
+      color: rgba(255,255,255,0.86);
+      font-size: clamp(1.05rem, 1.7vw, 1.42rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 11px 16px;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      font-weight: 760;
+      text-decoration: none;
+      transition: transform 0.18s ease, background 0.18s ease, border 0.18s ease;
+    }
+
+    .button:hover,
+    .button:focus {
+      transform: translateY(-2px);
+    }
+
+    .button.primary {
+      background: #e8fbfd;
+      color: var(--deep);
+    }
+
+    .button.ghost {
+      color: var(--white);
+      border-color: rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.94);
+      color: var(--ink);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      object-position: center 18%;
+    }
+
+    .hero-card-body {
+      padding: 18px;
+    }
+
+    .hero-card strong {
+      display: block;
+      font-size: 1.02rem;
+    }
+
+    .hero-card p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .hero-metrics {
+      position: relative;
+      z-index: 2;
+      max-width: 1240px;
+      width: 100%;
+      margin: 34px auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      background: rgba(255,255,255,0.24);
+      border: 1px solid rgba(255,255,255,0.22);
+    }
+
+    .metric {
+      padding: 18px;
+      background: rgba(6, 41, 56, 0.58);
+    }
+
+    .metric b {
+      display: block;
+      font-size: 1.8rem;
+      line-height: 1;
+      color: #dbfbff;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 6px;
+      color: rgba(255,255,255,0.74);
+      font-size: 0.86rem;
+    }
+
+    section {
+      padding: 76px 5vw;
+    }
+
+    .section-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    .section-kicker {
+      color: var(--teal);
+      font-weight: 800;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+    }
+
+    .section-title {
+      margin: 8px 0 18px;
+      max-width: 900px;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .section-copy {
+      max-width: 860px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .research-summary {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .summary-item {
+      padding: 18px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--teal);
+      border-radius: var(--radius);
+    }
+
+    .summary-item strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .summary-item span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .focus-panel {
+      background: var(--deep);
+      color: var(--white);
+      padding: 30px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .focus-panel h3 {
+      margin: 0 0 12px;
+      font-size: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .focus-panel p {
+      color: rgba(255,255,255,0.78);
+      margin: 0 0 22px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      padding: 7px 10px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 999px;
+      color: rgba(255,255,255,0.9);
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .findings {
+      background: var(--white);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .finding-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .finding-card {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 18px;
+      padding: 24px;
+      background: #fbfdfc;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .finding-number {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      background: #e7f6f8;
+      color: var(--teal);
+      border-radius: 50%;
+      font-weight: 850;
+    }
+
+    .finding-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.24rem;
+      line-height: 1.25;
+    }
+
+    .finding-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .finding-card .source {
+      display: inline-flex;
+      margin-top: 14px;
+      color: var(--rust);
+      font-size: 0.86rem;
+      font-weight: 820;
+    }
+
+    .feature-strip {
+      padding: 0 5vw;
+      background: var(--white);
+    }
+
+    .feature-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+      border-left: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+    }
+
+    .feature-image {
+      min-height: 460px;
+      background: url("Highlight_image.PNG") center / cover no-repeat;
+    }
+
+    .feature-image-grid {
+      min-height: 460px;
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 0;
+    }
+
+    .feature-image-grid img {
+      width: 100%;
+      height: 100%;
+      min-height: 230px;
+      object-fit: cover;
+    }
+
+    .feature-text {
+      padding: 46px;
+      background: #102027;
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .feature-text h2 {
+      margin: 0 0 16px;
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      line-height: 1.08;
+    }
+
+    .feature-text p {
+      margin: 0 0 14px;
+      color: rgba(255,255,255,0.78);
+    }
+
+    .publications {
+      background: #eef4f5;
+    }
+
+    .pub-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .pub-tab {
+      border: 1px solid var(--line);
+      background: var(--white);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font: inherit;
+      font-weight: 780;
+      cursor: pointer;
+    }
+
+    .pub-tab.active {
+      background: var(--deep);
+      border-color: var(--deep);
+      color: var(--white);
+    }
+
+    .pub-section {
+      display: none;
+      margin-top: 22px;
+    }
+
+    .pub-section.active {
+      display: grid;
+      gap: 12px;
+    }
+
+    .pub-item {
+      display: grid;
+      grid-template-columns: 82px minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: start;
+      padding: 20px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .pub-year {
+      color: var(--teal);
+      font-weight: 850;
+    }
+
+    .pub-title {
+      font-weight: 830;
+      line-height: 1.3;
+    }
+
+    .pub-meta {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .pub-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .small-link {
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--teal);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .small-link:hover,
+    .small-link:focus {
+      background: #e7f6f8;
+    }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .video-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .video-link {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .video-thumb {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: block;
+      object-fit: cover;
+      background: var(--deep);
+    }
+
+    .video-play {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      background: rgba(6, 41, 56, 0.18);
+      font-size: 0.95rem;
+      font-weight: 850;
+      opacity: 0;
+      transition: opacity 0.18s ease;
+    }
+
+    .video-media {
+      position: relative;
+      background: var(--deep);
+    }
+
+    .video-link:hover .video-play,
+    .video-link:focus .video-play {
+      opacity: 1;
+    }
+
+    .video-placeholder {
+      aspect-ratio: 16 / 9;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(135deg, rgba(6,41,56,0.78), rgba(0,124,137,0.72)),
+        url("Highlight_image.PNG") center / cover no-repeat;
+      color: var(--white);
+      font-size: 1rem;
+      font-weight: 850;
+      text-align: center;
+      padding: 18px;
+    }
+
+    .video-body {
+      padding: 18px;
+    }
+
+    .video-body h3 {
+      margin: 0 0 6px;
+      font-size: 1.05rem;
+    }
+
+    .video-body p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .collab-stage {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
+      gap: 30px;
+      align-items: start;
+    }
+
+    .hex-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(130px, 180px));
+      gap: 26px 30px;
+      align-items: center;
+    }
+
+    .hex-collab {
+      position: relative;
+      width: min(100%, 210px);
+      aspect-ratio: 1;
+      border: 0;
+      padding: 0;
+      background: transparent;
+      cursor: pointer;
+      isolation: isolate;
+    }
+
+    .hex-collab img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      clip-path: polygon(25% 4%, 75% 4%, 100% 50%, 75% 96%, 25% 96%, 0 50%);
+      filter: saturate(0.95) contrast(1.02);
+      box-shadow: var(--shadow);
+      transition: transform 0.22s ease, filter 0.22s ease;
+    }
+
+    .hex-collab img.photo-contain {
+      object-fit: contain;
+      object-position: center center;
+      background: #ffffff;
+      padding: 12px;
+    }
+
+    .hex-collab::after {
+      content: "";
+      position: absolute;
+      inset: -8px;
+      clip-path: polygon(25% 4%, 75% 4%, 100% 50%, 75% 96%, 25% 96%, 0 50%);
+      border: 2px solid rgba(0,124,137,0.32);
+      z-index: -1;
+    }
+
+    .hex-collab:hover img,
+    .hex-collab:focus-visible img {
+      transform: translateY(-4px) scale(1.02);
+      filter: saturate(1.04) contrast(1.04);
+    }
+
+    .hex-collab.is-active::after,
+    .hex-collab:hover::after,
+    .hex-collab:focus-visible::after {
+      border-color: var(--gold);
+    }
+
+    .collab-detail {
+      position: sticky;
+      top: 86px;
+      min-height: 240px;
+      padding: 24px;
+      background: var(--deep);
+      color: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .collab-detail .section-kicker {
+      color: #9be0e7;
+    }
+
+    .collab-detail h3 {
+      margin: 8px 0 8px;
+      font-size: 1.5rem;
+      line-height: 1.18;
+    }
+
+    .collab-detail p {
+      margin: 0;
+      color: rgba(255,255,255,0.74);
+    }
+
+    .gallery {
+      background: var(--white);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr;
+      grid-auto-rows: 220px;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .gallery-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--deep);
+      border: 1px solid var(--line);
+    }
+
+    .gallery-card.featured {
+      grid-row: span 2;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.95) contrast(1.02);
+    }
+
+    .gallery-card figcaption {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 14px;
+      color: var(--white);
+      background: linear-gradient(180deg, rgba(6,41,56,0), rgba(6,41,56,0.86));
+      font-weight: 780;
+    }
+
+
+    .name-panel {
+      padding: 22px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .name-panel + .name-panel {
+      margin-top: 16px;
+    }
+
+    .name-panel h3 {
+      margin: 0 0 12px;
+      font-size: 1.08rem;
+    }
+
+    .name-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .name-list li {
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: #fbfdfc;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .contact {
+      background: var(--deep);
+      color: var(--white);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+      gap: 34px;
+      align-items: start;
+    }
+
+    .contact .section-kicker {
+      color: #9be0e7;
+    }
+
+    .contact .section-copy {
+      color: rgba(255,255,255,0.75);
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-link {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.06);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 760;
+    }
+
+    .contact-link span {
+      color: rgba(255,255,255,0.62);
+      font-weight: 520;
+    }
+
+    footer {
+      padding: 24px 5vw;
+      background: #031923;
+      color: rgba(255,255,255,0.64);
+      font-size: 0.9rem;
+    }
+
+    .footer-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .nav-links {
+        gap: 14px;
+        font-size: 0.78rem;
+      }
+
+      .hero-inner,
+      .about-grid,
+      .feature-inner,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        max-width: 420px;
+      }
+
+      .hero-metrics,
+      .finding-grid,
+      .media-grid,
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .collab-stage {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-image {
+        min-height: 300px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .site-nav {
+        height: auto;
+        min-height: 64px;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px 5vw;
+      }
+
+      .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 2px;
+      }
+
+      .hero {
+        padding-top: 142px;
+      }
+
+      .hero-metrics,
+      .research-summary,
+      .finding-grid,
+      .media-grid,
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-card.featured {
+        grid-row: span 1;
+      }
+
+      .hex-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .finding-card {
+        grid-template-columns: 1fr;
+      }
+
+      .pub-item {
+        grid-template-columns: 1fr;
+      }
+
+      .pub-links {
+        justify-content: flex-start;
+      }
+
+      section {
+        padding: 58px 5vw;
+      }
+
+      .feature-strip {
+        padding: 0;
+      }
+
+      .feature-text {
+        padding: 32px 5vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="site-nav" aria-label="Primary navigation">
+    <a class="brand" href="#top">Gangadhar <span>V. R. Pinapatruni</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">Profile</a></li>
+      <li><a href="#findings">Findings</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#media">Media</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow">PMRF · Bio-inspired fluid dynamics · IIT Kharagpur</div>
+        <h1>Researching how <span>vortices</span> reshape aerodynamic performance.</h1>
+        <p class="hero-lede">I study tubercle airfoils, flapping wings, tandem foil interactions, and wake instability to turn bio-inspired flow physics into design insight for low-Reynolds-number flight and propulsion.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#findings">Read Key Findings</a>
+          <a class="button ghost" href="#publications">View Publications</a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="Researcher profile">
+        <img src="my_photo2.jpg" alt="Portrait of Gangadhar V. R. Pinapatruni">
+        <div class="hero-card-body">
+          <strong>Gangadhar V. R. Pinapatruni</strong>
+          <p>Ph.D. Research Scholar, Department of Aerospace Engineering, IIT Kharagpur</p>
+        </div>
+      </aside>
+    </div>
+    <div class="hero-metrics" aria-label="Research output summary">
+      <div class="metric"><b>4</b><span>Publications</span></div>
+      <div class="metric"><b>1</b><span>Granted patent</span></div>
+      <div class="metric"><b>7+</b><span>Conference contributions</span></div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="about">
+      <div class="section-inner about-grid">
+        <div>
+          <div class="section-kicker">Research Profile</div>
+          <h2 class="section-title">A fluid dynamicist focused on bio-inspired aerodynamic mechanisms.</h2>
+          <p class="section-copy">My work combines numerical simulations, in-house water tunnel experiments, and flow visualization to identify the physical mechanisms behind lift, drag, thrust, and wake switching in low-speed aerodynamic systems.</p>
+          <div class="research-summary">
+            <div class="summary-item">
+              <strong>Core domain</strong>
+              <span>Bio-inspired aerodynamics, tubercle airfoils, flapping wings, low-Re flow physics.</span>
+            </div>
+            <div class="summary-item">
+              <strong>Methods</strong>
+              <span>CFD, PIV and water tunnel experiments, vortex topology analysis, optimization.</span>
+            </div>
+            <div class="summary-item">
+              <strong>Current direction</strong>
+              <span>Mechanism-level understanding of wake instability and propulsion in unsteady flows.</span>
+            </div>
+            <div class="summary-item">
+              <strong>Opportunity focus</strong>
+              <span>Open to post-doctoral and research fellowship positions in fluid dynamics.</span>
+            </div>
+          </div>
+        </div>
+        <aside class="focus-panel">
+          <h3>Research question that connects the portfolio</h3>
+          <p>How do geometry, flapping kinematics, and vortex memory change aerodynamic forces when the flow is separated, unsteady, or repeatedly interacting with its own wake?</p>
+          <div class="tag-list" aria-label="Research keywords">
+            <span class="tag">Tubercle airfoils</span>
+            <span class="tag">Vortex dynamics</span>
+            <span class="tag">Flapping propulsion</span>
+            <span class="tag">Water tunnel experiments</span>
+            <span class="tag">CFD validation</span>
+            <span class="tag">Wake instability</span>
+            <span class="tag">Low Reynolds number</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="findings" id="findings">
+      <div class="section-inner">
+        <div class="section-kicker">Key Findings</div>
+        <h2 class="section-title">Research Contribution</h2>
+
+        <div class="finding-grid">
+          <article class="finding-card">
+            <div class="finding-number">01</div>
+            <div>
+              <h3>Optimized tubercles delay post-stall performance loss.</h3>
+              <p>An evolutionary multi-objective search identified a NACA0012 tubercle geometry with amplitude 11.71% chord and wavelength 25% chord at Re = 50,000. Experiments and simulations showed improved lift and reduced drag in the post-stall regime by reorganizing stall cells and maintaining attached-flow zones.</p>
+              <span class="source">Physics of Fluids, 2024</span>
+            </div>
+          </article>
+
+          <article class="finding-card">
+            <div class="finding-number">02</div>
+            <div>
+              <h3>Not every bio-inspired feature improves forward-flight thrust.</h3>
+              <p>For a flapping wing with sinusoidal leading-edge tubercles, the wake developed counter-rotating vortex pairs, residual loops, and hairpin-like structures that reduced thrust compared with a smooth baseline wing. The result is a clear design warning: tubercles must be matched to the flight mode.</p>
+              <span class="source">Physics of Fluids, 2025</span>
+            </div>
+          </article>
+
+          <article class="finding-card">
+            <div class="finding-number">03</div>
+            <div>
+              <h3>Tandem flapping propulsion depends on useful wake capture.</h3>
+              <p>In tandem elliptical flapping airfoils at Re = 5000, the rear foil benefits from the front foil wake up to a critical Strouhal number. Residual vortices and shear-layer interaction can increase thrust, especially near a 15 degree effective angle of attack.</p>
+              <span class="source">Physics of Fluids, 2026</span>
+            </div>
+          </article>
+
+          <article class="finding-card">
+            <div class="finding-number">04</div>
+            <div>
+              <h3>Remnant vortices can trigger wake switching in hovering foils.</h3>
+              <p>In quiescent fluid, a hovering foil repeatedly encounters its own wake. The published letter identifies a history-dependent remnant vortex impingement mechanism that drives premature leading-edge vortex detachment, oblique wake dipole ejection, aperiodic switching, and lift asymmetry despite symmetric kinematics.</p>
+              <span class="source">Physics of Fluids Letter, 2026</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-strip" aria-label="Research visualization">
+      <div class="feature-inner">
+        <div class="feature-image-grid" aria-label="Bio-inspired source and vortex structure visuals">
+          <img src="humpback_whale.jpg" alt="Humpback whale flipper inspiration for leading-edge tubercles">
+          <img src="hairpin_vortex_structure.jpg" alt="Hairpin vortex structure visualization">
+        </div>
+        <div class="feature-text">
+          <h2>From biological morphology to vortex topology.</h2>
+          <p>The research connects a natural design cue, leading-edge tubercles inspired by humpback whale flippers, with the measurable flow structures that control lift, drag, thrust, and wake switching.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="publications" id="publications">
+      <div class="section-inner">
+        <div class="section-kicker">Scholarly Output</div>
+        <h2 class="section-title">Publications, conferences, and patent.</h2>
+        <p class="section-copy">DOI links are provided for the journal articles.</p>
+
+        <div class="pub-tabs" role="tablist" aria-label="Publication categories">
+          <button class="pub-tab active" type="button" data-tab="journals">Journal Papers</button>
+          <button class="pub-tab" type="button" data-tab="conferences">Conference Papers</button>
+          <button class="pub-tab" type="button" data-tab="patent">Patent</button>
+        </div>
+
+        <div class="pub-section active" id="journals">
+          <article class="pub-item">
+            <div class="pub-year">2026</div>
+            <div>
+              <div class="pub-title">The role of the remnant vortex in the wake instability of a heaving and pitching foil in quiescent fluid</div>
+              <div class="pub-meta">Gangadhar V. R. Pinapatruni, Kalyani Kalavakunta, Sarath Nagirikatakam, Kim Boon Lua, Sunil Manohar Dash · Physics of Fluids 38, 051705</div>
+            </div>
+            <div class="pub-links">
+              <a class="small-link" href="https://doi.org/10.1063/5.0334247">DOI</a>
+            </div>
+          </article>
+
+          <article class="pub-item">
+            <div class="pub-year">2026</div>
+            <div>
+              <div class="pub-title">Flapping frequency influence on thrust generation and propulsive efficiency of tandem flapping airfoils in forward flight</div>
+              <div class="pub-meta">Rahul Ranjan, Gangadhar V. R. Pinapatruni, Sunil Manohar Dash, Kim Boon Lua · Physics of Fluids 38, 011907</div>
+            </div>
+            <div class="pub-links">
+              <a class="small-link" href="https://doi.org/10.1063/5.0305958">DOI</a>
+            </div>
+          </article>
+
+          <article class="pub-item">
+            <div class="pub-year">2025</div>
+            <div>
+              <div class="pub-title">On the investigation of near-wake flow structures and the aerodynamics of flapping wing with sinusoidal leading edge tubercles in forward flight</div>
+              <div class="pub-meta">Gangadhar V. R. Pinapatruni, Jit Sinha, Kim Boon Lua, Sunil Manohar Dash · Physics of Fluids 37, 041911</div>
+            </div>
+            <div class="pub-links">
+              <a class="small-link" href="https://doi.org/10.1063/5.0264438">DOI</a>
+            </div>
+          </article>
+
+          <article class="pub-item">
+            <div class="pub-year">2024</div>
+            <div>
+              <div class="pub-title">On the investigation of the aerodynamics performance and associated flow physics of the optimized tubercle airfoil</div>
+              <div class="pub-meta">Gangadhar V. R. Pinapatruni, Mouli Bhaskar Duddupudi, Sunil Manohar Dash, Aurobinda Routray · Physics of Fluids 36, 051907</div>
+            </div>
+            <div class="pub-links">
+              <a class="small-link" href="https://doi.org/10.1063/5.0203519">DOI</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="pub-section" id="conferences">
+          <article class="pub-item">
+            <div class="pub-year">2024</div>
+            <div>
+              <div class="pub-title">Experimental and numerical investigations on the aerodynamic lift characteristics and flow features of water-treading hovering of two-dimensional elliptic airfoil</div>
+              <div class="pub-meta">77th APS Division of Fluid Dynamics · Salt Lake City, USA</div>
+            </div>
+            <div class="pub-links"></div>
+          </article>
+          <article class="pub-item">
+            <div class="pub-year">2024</div>
+            <div>
+              <div class="pub-title">On the investigation of improved aerodynamic lift characteristics of leading-edge tubercle NACA0012 airfoil at low Reynolds numbers</div>
+              <div class="pub-meta">2nd International Conference in Fluid, Thermal and Energy Systems · Calicut, India</div>
+            </div>
+            <div class="pub-links"></div>
+          </article>
+          <article class="pub-item">
+            <div class="pub-year">2024</div>
+            <div>
+              <div class="pub-title">Experimental investigation on the aerodynamic lift characteristics and flow features of hovering two-dimensional elliptic airfoil</div>
+              <div class="pub-meta">22nd International Conference on Experimental Mechanics · IIT Madras, India</div>
+            </div>
+            <div class="pub-links"></div>
+          </article>
+          <article class="pub-item">
+            <div class="pub-year">2023</div>
+            <div>
+              <div class="pub-title">The aerodynamic study of the pitching NACA0012 airfoil with and without leading-edge tubercles at low Reynolds number</div>
+              <div class="pub-meta">76th APS Division of Fluid Dynamics · Washington, USA</div>
+            </div>
+            <div class="pub-links"></div>
+          </article>
+          <article class="pub-item">
+            <div class="pub-year">2022</div>
+            <div>
+              <div class="pub-title">On the aerodynamic performance of the leading-edge tubercle elliptic flapping airfoil in forward flight condition</div>
+              <div class="pub-meta">75th APS Division of Fluid Dynamics · Indianapolis, USA</div>
+            </div>
+            <div class="pub-links"></div>
+          </article>
+          <article class="pub-item">
+            <div class="pub-year">2022</div>
+            <div>
+              <div class="pub-title">Characterisation of the new open surface recirculating water tunnel facility at IIT Kharagpur</div>
+              <div class="pub-meta">9th International and 49th National Conference on FMFP · Roorkee, India</div>
+            </div>
+            <div class="pub-links"></div>
+          </article>
+          <article class="pub-item">
+            <div class="pub-year">2021</div>
+            <div>
+              <div class="pub-title">A numerical study on the negative lift and point of non-linearity in the lift curve of NACA0012 airfoil at low Reynolds number</div>
+              <div class="pub-meta">8th International Conference on ICTACEM · Kharagpur, India</div>
+            </div>
+            <div class="pub-links"></div>
+          </article>
+        </div>
+
+        <div class="pub-section" id="patent">
+          <article class="pub-item">
+            <div class="pub-year">2024</div>
+            <div>
+              <div class="pub-title">An alternative dividing head mechanism using magnetic patterning</div>
+              <div class="pub-meta">Gangadhar V. R. Pinapatruni, Prabhu L., Srinivas J. · Patent No. 514095 · Granted 22 February 2024</div>
+            </div>
+            <div class="pub-links"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="media">
+      <div class="section-inner">
+        <div class="section-kicker">Media</div>
+        <h2 class="section-title">Research videos and visualizations.</h2>
+        <div class="media-grid">
+          <article class="video-card">
+            <a class="video-link" href="https://youtu.be/sTd0fE7oaEA" target="_blank" rel="noopener">
+              <div class="video-media">
+                <img class="video-thumb" src="https://img.youtube.com/vi/sTd0fE7oaEA/hqdefault.jpg" alt="Evolution of hairpin vortex structures on the flapping tubercle wing">
+                <span class="video-play">Watch on YouTube</span>
+              </div>
+              <div class="video-body">
+                <h3>Evolution of hairpin vortex structures on the flapping tubercle wing</h3>
+              </div>
+            </a>
+          </article>
+          <article class="video-card">
+            <a class="video-link" href="https://youtu.be/A_Yg0rNA8hY" target="_blank" rel="noopener">
+              <div class="video-media">
+                <img class="video-thumb" src="https://img.youtube.com/vi/A_Yg0rNA8hY/hqdefault.jpg" alt="Wake instability demonstration of hovering flight">
+                <span class="video-play">Watch on YouTube</span>
+              </div>
+              <div class="video-body">
+                <h3>Wake instability demonstration of hovering flight</h3>
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="network">
+      <div class="section-inner">
+        <div class="section-kicker">Research Network</div>
+        <h2 class="section-title">Collaborative work across experiments, computation, and design.</h2>
+        <div class="collab-stage">
+          <div>
+            <div class="section-kicker">Current Collaborators</div>
+            <div class="hex-grid" aria-label="Current collaborators with photos">
+              <button class="hex-collab is-active" type="button" data-name="Prof. Sunil Manohar Dash" data-affiliation="Doctoral supervisor · Department of Aerospace Engineering, IIT Kharagpur">
+                <img src="sunil_sir.png" alt="Prof. Sunil Manohar Dash">
+              </button>
+              <button class="hex-collab" type="button" data-name="Prof. Lua Kim Boon" data-affiliation="Guide and collaborator · Department of Mechanical Engineering, NYCU, Taiwan">
+                <img class="photo-contain" src="lua_kim_boon.jpg" alt="Prof. Lua Kim Boon">
+              </button>
+              <button class="hex-collab" type="button" data-name="Prof. Aurobinda Routray" data-affiliation="Guide and collaborator · Department of Electrical Engineering, IIT Kharagpur">
+                <img src="aurobinda_routray.webp" alt="Prof. Aurobinda Routray">
+              </button>
+              <button class="hex-collab" type="button" data-name="Rahul Ranjan" data-affiliation="PhD scholar · Aerospace Engineering, IIT Kharagpur">
+                <img src="rahul_ranjan.jpg" alt="Rahul Ranjan">
+              </button>
+              <button class="hex-collab" type="button" data-name="Junaid" data-affiliation="PhD scholar · Aerospace Engineering, IIT Kharagpur">
+                <img src="Junaid.jpeg" alt="Junaid">
+              </button>
+              <button class="hex-collab" type="button" data-name="Kalyani Kalavakunta" data-affiliation="Bachelor student · Aerospace Engineering, IIT Kharagpur">
+                <img src="kaylani_photo2.jpg" alt="Kalyani Kalavakunta">
+              </button>
+              <button class="hex-collab" type="button" data-name="Sarath Nagirikatakam" data-affiliation="Bachelor student · Aerospace Engineering, IIT Kharagpur">
+                <img src="Sarath.jpeg" alt="Sarath Nagirikatakam">
+              </button>
+              <button class="hex-collab" type="button" data-name="Atmaja" data-affiliation="Bachelor student · Mechanical Engineering, IIT Kharagpur">
+                <img src="atmaja.jpeg" alt="Atmaja">
+              </button>
+            </div>
+          </div>
+          <div>
+            <aside class="collab-detail" aria-live="polite">
+              <h3 id="collab-detail-name">Prof. Sunil Manohar Dash</h3>
+              <p id="collab-detail-affiliation">Doctoral supervisor · Department of Aerospace Engineering, IIT Kharagpur</p>
+            </aside>
+            <aside class="name-panel">
+              <h3>Past collaborators</h3>
+              <ul class="name-list">
+                <li>Jit Sinha</li>
+                <li>Mouli Bhaskar Duddupudi</li>
+                <li>Disha Uppuluri</li>
+                <li>Prabhu L.</li>
+                <li>Srinivas J.</li>
+                <li>Sunita Mishra</li>
+                <li>Durga Charan</li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <div class="section-inner">
+        <div class="section-kicker">Gallery</div>
+        <h2 class="section-title">Conferences, collaborations, and milestones.</h2>
+        <div class="gallery-grid">
+          <figure class="gallery-card featured">
+            <img src="my_photo2.jpg" alt="Gangadhar V. R. Pinapatruni at a city landmark">
+            <figcaption>Research journey and international exposure</figcaption>
+          </figure>
+          <figure class="gallery-card">
+            <img src="Highlight_image.PNG" alt="Flow visualization from research work">
+            <figcaption>Flow visualization</figcaption>
+          </figure>
+          <figure class="gallery-card">
+            <img src="humpback_whale.jpg" alt="Humpback whale bio-inspired reference">
+            <figcaption>Bio-inspired design cue</figcaption>
+          </figure>
+          <figure class="gallery-card">
+            <img src="hairpin_vortex_structure.jpg" alt="Hairpin vortex structure">
+            <figcaption>Vortex topology</figcaption>
+          </figure>
+          <figure class="gallery-card">
+            <img src="gangadhar_photo.jpg" alt="Professional portrait of Gangadhar V. R. Pinapatruni">
+            <figcaption>Professional profile</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="section-inner contact-grid">
+        <div>
+          <div class="section-kicker">Contact</div>
+          <h2 class="section-title">Available for post-doctoral and research fellowship conversations.</h2>
+          <p class="section-copy">I am interested in projects at the intersection of unsteady aerodynamics, bio-inspired design, vortex dynamics, and experimental-computational validation.</p>
+        </div>
+        <div class="contact-list">
+          <a class="contact-link" href="mailto:gangadharvrp@outlook.com">Email <span>gangadharvrp@outlook.com</span></a>
+          <a class="contact-link" href="https://scholar.google.com/citations?user=XUBMMSYAAAAJ&hl=en">Google Scholar <span>Citations and publications</span></a>
+          <a class="contact-link" href="https://www.researchgate.net/profile/Gangadhar-Pinapatruni">ResearchGate <span>Research profile and full texts</span></a>
+          <a class="contact-link" href="https://www.linkedin.com/in/gangadharvenkataramana/">LinkedIn <span>Professional profile</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>&copy; 2026 Gangadhar V. R. Pinapatruni</span>
+      <span>Bio-inspired aerodynamics · Fluid dynamics · IIT Kharagpur</span>
+    </div>
+  </footer>
+
+  <script>
+    const tabs = document.querySelectorAll(".pub-tab");
+    const sections = document.querySelectorAll(".pub-section");
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const target = tab.dataset.tab;
+        tabs.forEach((item) => item.classList.remove("active"));
+        sections.forEach((section) => section.classList.remove("active"));
+        tab.classList.add("active");
+        document.getElementById(target).classList.add("active");
+      });
+    });
+
+    const collabButtons = document.querySelectorAll(".hex-collab");
+    const collabName = document.getElementById("collab-detail-name");
+    const collabAffiliation = document.getElementById("collab-detail-affiliation");
+
+    collabButtons.forEach((button) => {
+      const updateCollaborator = () => {
+        collabButtons.forEach((item) => item.classList.remove("is-active"));
+        button.classList.add("is-active");
+        collabName.textContent = button.dataset.name;
+        collabAffiliation.textContent = button.dataset.affiliation;
+      };
+
+      button.addEventListener("mouseenter", updateCollaborator);
+      button.addEventListener("focus", updateCollaborator);
+      button.addEventListener("click", updateCollaborator);
+    });
+  </script>
+</body>
+</html>
