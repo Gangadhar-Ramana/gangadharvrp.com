@@ -752,52 +752,160 @@
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr 0.8fr;
-      grid-auto-rows: 220px;
-      gap: 14px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
       margin-top: 34px;
     }
 
-    .gallery-card {
+    .gallery-collage {
       position: relative;
       overflow: hidden;
       border-radius: var(--radius);
       background: var(--deep);
       border: 1px solid var(--line);
+      min-height: 520px;
+      padding: 0;
+      color: inherit;
+      font: inherit;
+      text-align: inherit;
+      cursor: pointer;
+      box-shadow: var(--shadow);
     }
 
-    .gallery-card.featured {
-      grid-row: span 2;
+    .gallery-collage:focus-visible {
+      outline: 3px solid #9be0e7;
+      outline-offset: 4px;
     }
 
-    .gallery-card.wide {
-      grid-column: span 2;
+    .collage-grid {
+      display: grid;
+      width: 100%;
+      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-rows: repeat(3, 1fr);
+      gap: 4px;
+      height: 520px;
+      background: var(--deep);
     }
 
-    .gallery-card img {
+    .collage-grid img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       filter: saturate(0.95) contrast(1.02);
     }
 
-    .gallery-card img.portrait-focus {
-      object-position: center 16%;
+    .collage-grid img:first-child {
+      grid-row: span 2;
     }
 
-    .gallery-card img.visual-contain {
+    .collage-grid img.visual-contain,
+    .gallery-modal-grid img.visual-contain {
       object-fit: contain;
       background: #ffffff;
       padding: 10px;
     }
 
-    .gallery-card figcaption {
+    .collage-grid img.portrait-focus,
+    .gallery-modal-grid img.portrait-focus {
+      object-position: center 16%;
+    }
+
+    .collage-grid img.research-focus {
+      object-position: center center;
+    }
+
+    .gallery-collage-caption {
       position: absolute;
       inset: auto 0 0;
-      padding: 14px;
+      padding: 18px;
       color: var(--white);
       background: linear-gradient(180deg, rgba(6,41,56,0), rgba(6,41,56,0.86));
       font-weight: 780;
+      text-align: left;
+    }
+
+    .gallery-collage-caption span {
+      display: block;
+      margin-top: 4px;
+      color: rgba(255,255,255,0.72);
+      font-size: 0.88rem;
+      font-weight: 560;
+    }
+
+    .gallery-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      background: rgba(3, 25, 35, 0.94);
+      color: var(--white);
+      overflow-y: auto;
+    }
+
+    .gallery-modal.is-open {
+      display: block;
+    }
+
+    .gallery-modal-shell {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 34px 5vw 52px;
+    }
+
+    .gallery-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .gallery-modal-title {
+      margin: 0;
+      font-size: clamp(1.65rem, 3vw, 2.8rem);
+      line-height: 1.1;
+    }
+
+    .gallery-modal-close {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255,255,255,0.24);
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      font-size: 1.6rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .gallery-modal-grid {
+      columns: 3 260px;
+      column-gap: 14px;
+    }
+
+    .gallery-modal-item {
+      position: relative;
+      break-inside: avoid;
+      margin: 0 0 14px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: #ffffff;
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+
+    .gallery-modal-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .gallery-modal-item figcaption {
+      padding: 12px 14px;
+      color: var(--ink);
+      background: var(--white);
+      font-weight: 760;
     }
 
 
@@ -914,8 +1022,7 @@
 
       .hero-metrics,
       .finding-grid,
-      .media-grid,
-      .gallery-grid {
+      .media-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
@@ -956,12 +1063,10 @@
         grid-template-columns: 1fr;
       }
 
-      .gallery-card.featured {
-        grid-row: span 1;
-      }
-
-      .gallery-card.wide {
-        grid-column: span 1;
+      .gallery-collage,
+      .collage-grid {
+        min-height: 430px;
+        height: 430px;
       }
 
       .hex-grid {
@@ -1379,61 +1484,39 @@
         <div class="section-kicker">Gallery</div>
         <h2 class="section-title">Conferences, collaborations, and milestones.</h2>
         <div class="gallery-grid">
-          <figure class="gallery-card featured">
-            <img src="my_photo2.jpg" alt="Gangadhar V. R. Pinapatruni at a city landmark">
-            <figcaption>Research journey and international exposure</figcaption>
-          </figure>
-          <figure class="gallery-card">
-            <img src="Highlight_image.PNG" alt="Flow visualization from research work">
-            <figcaption>Flow visualization</figcaption>
-          </figure>
-          <figure class="gallery-card">
-            <img src="humpback_whale.jpg" alt="Humpback whale bio-inspired reference">
-            <figcaption>Bio-inspired design cue</figcaption>
-          </figure>
-          <figure class="gallery-card">
-            <img src="hairpin_vortex_structure.jpg" alt="Hairpin vortex structure">
-            <figcaption>Vortex topology</figcaption>
-          </figure>
-          <figure class="gallery-card">
-            <img class="portrait-focus" src="gangadhar_photo.jpg" alt="Professional portrait of Gangadhar V. R. Pinapatruni">
-            <figcaption>Professional profile</figcaption>
-          </figure>
-          <figure class="gallery-card">
-            <img src="gallery/iitk-research-group-moment.jpg" alt="Research group moment with collaborators at IIT Kharagpur">
-            <figcaption>Research group moments at IIT Kharagpur</figcaption>
-          </figure>
-          <figure class="gallery-card wide">
-            <img src="gallery/ucd-conference-visit.jpg" alt="Conference visit with collaborators at University College Dublin">
-            <figcaption>Conference visit at University College Dublin</figcaption>
-          </figure>
-          <figure class="gallery-card">
-            <img src="gallery/conference-collaborators-break.jpg" alt="Conference break with research collaborators">
-            <figcaption>Conference break with collaborators</figcaption>
-          </figure>
-          <figure class="gallery-card">
-            <img src="gallery/dublin-conference-visit.jpg" alt="Research collaborators during a Dublin conference visit">
-            <figcaption>Dublin conference visit</figcaption>
-          </figure>
-          <figure class="gallery-card wide">
-            <img src="gallery/student-collaborators-field-visit.jpg" alt="Field visit with student collaborators near the coast">
-            <figcaption>Field visit with student collaborators</figcaption>
-          </figure>
-          <figure class="gallery-card">
-            <img src="gallery/space-center-houston-visit.jpg" alt="Research travel group at Space Center Houston">
-            <figcaption>Research travel at Space Center Houston</figcaption>
-          </figure>
-          <figure class="gallery-card">
-            <img class="visual-contain" src="gallery/skin-friction-lines.png" alt="Skin-friction line pattern from flow visualization">
-            <figcaption>Tubercles are watching</figcaption>
-          </figure>
-          <figure class="gallery-card">
-            <img class="visual-contain" src="gallery/annotated-skin-friction-topology.png" alt="Annotated skin-friction topology from flow analysis">
-            <figcaption>Annotated skin-friction topology</figcaption>
-          </figure>
+          <button class="gallery-collage" type="button" data-gallery="people" aria-label="Open people and group photo gallery">
+            <span class="collage-grid" aria-hidden="true">
+              <img src="my_photo2.jpg" alt="">
+              <img src="gallery/ucd-conference-visit.jpg" alt="">
+              <img class="portrait-focus" src="gangadhar_photo.jpg" alt="">
+              <img src="gallery/dublin-conference-visit.jpg" alt="">
+              <img src="gallery/space-center-houston-visit.jpg" alt="">
+            </span>
+            <span class="gallery-collage-caption">People and group photos <span>Open gallery collection</span></span>
+          </button>
+          <button class="gallery-collage" type="button" data-gallery="research" aria-label="Open research visuals gallery">
+            <span class="collage-grid" aria-hidden="true">
+              <img src="Highlight_image.PNG" alt="">
+              <img src="humpback_whale.jpg" alt="">
+              <img src="hairpin_vortex_structure.jpg" alt="">
+              <img class="visual-contain" src="gallery/skin-friction-lines.png" alt="">
+              <img class="visual-contain research-focus" src="gallery/annotated-skin-friction-topology.png" alt="">
+            </span>
+            <span class="gallery-collage-caption">Research visuals <span>Open gallery collection</span></span>
+          </button>
         </div>
       </div>
     </section>
+
+    <div class="gallery-modal" id="gallery-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="gallery-modal-title">
+      <div class="gallery-modal-shell">
+        <div class="gallery-modal-header">
+          <h2 class="gallery-modal-title" id="gallery-modal-title">Gallery</h2>
+          <button class="gallery-modal-close" type="button" aria-label="Close gallery">&times;</button>
+        </div>
+        <div class="gallery-modal-grid" id="gallery-modal-grid"></div>
+      </div>
+    </div>
 
     <section class="contact" id="contact">
       <div class="section-inner contact-grid">
@@ -1488,6 +1571,74 @@
       button.addEventListener("mouseenter", updateCollaborator);
       button.addEventListener("focus", updateCollaborator);
       button.addEventListener("click", updateCollaborator);
+    });
+
+    const gallerySets = {
+      people: {
+        title: "People and group photos",
+        items: [
+          { src: "my_photo2.jpg", alt: "Gangadhar V. R. Pinapatruni at a city landmark", caption: "Research journey and international exposure" },
+          { src: "gangadhar_photo.jpg", alt: "Professional portrait of Gangadhar V. R. Pinapatruni", caption: "Professional profile", className: "portrait-focus" },
+          { src: "gallery/iitk-research-group-moment.jpg", alt: "Research group moment with collaborators at IIT Kharagpur", caption: "Research group moments at IIT Kharagpur" },
+          { src: "gallery/ucd-conference-visit.jpg", alt: "Conference visit with collaborators at University College Dublin", caption: "Conference visit at University College Dublin" },
+          { src: "gallery/conference-collaborators-break.jpg", alt: "Conference break with research collaborators", caption: "Conference break with collaborators" },
+          { src: "gallery/dublin-conference-visit.jpg", alt: "Research collaborators during a Dublin conference visit", caption: "Dublin conference visit" },
+          { src: "gallery/student-collaborators-field-visit.jpg", alt: "Field visit with student collaborators near the coast", caption: "Field visit with student collaborators" },
+          { src: "gallery/space-center-houston-visit.jpg", alt: "Research travel group at Space Center Houston", caption: "Research travel at Space Center Houston" }
+        ]
+      },
+      research: {
+        title: "Research visuals",
+        items: [
+          { src: "Highlight_image.PNG", alt: "Flow visualization from research work", caption: "Flow visualization" },
+          { src: "humpback_whale.jpg", alt: "Humpback whale bio-inspired reference", caption: "Bio-inspired design cue" },
+          { src: "hairpin_vortex_structure.jpg", alt: "Hairpin vortex structure", caption: "Vortex topology" },
+          { src: "gallery/skin-friction-lines.png", alt: "Skin-friction line pattern from flow visualization", caption: "Tubercles are watching", className: "visual-contain" },
+          { src: "gallery/annotated-skin-friction-topology.png", alt: "Annotated skin-friction topology from flow analysis", caption: "Annotated skin-friction topology", className: "visual-contain" }
+        ]
+      }
+    };
+
+    const galleryModal = document.getElementById("gallery-modal");
+    const galleryModalTitle = document.getElementById("gallery-modal-title");
+    const galleryModalGrid = document.getElementById("gallery-modal-grid");
+    const galleryModalClose = document.querySelector(".gallery-modal-close");
+    const galleryButtons = document.querySelectorAll(".gallery-collage");
+
+    const closeGalleryModal = () => {
+      galleryModal.classList.remove("is-open");
+      galleryModal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    };
+
+    const openGalleryModal = (key) => {
+      const gallery = gallerySets[key];
+      if (!gallery) return;
+      galleryModalTitle.textContent = gallery.title;
+      galleryModalGrid.innerHTML = gallery.items.map((item) => `
+        <figure class="gallery-modal-item">
+          <img src="${item.src}" alt="${item.alt}" class="${item.className || ""}">
+          <figcaption>${item.caption}</figcaption>
+        </figure>
+      `).join("");
+      galleryModal.classList.add("is-open");
+      galleryModal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      galleryModalClose.focus();
+    };
+
+    galleryButtons.forEach((button) => {
+      button.addEventListener("click", () => openGalleryModal(button.dataset.gallery));
+    });
+
+    galleryModalClose.addEventListener("click", closeGalleryModal);
+    galleryModal.addEventListener("click", (event) => {
+      if (event.target === galleryModal) closeGalleryModal();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && galleryModal.classList.contains("is-open")) {
+        closeGalleryModal();
+      }
     });
   </script>
 </body>
