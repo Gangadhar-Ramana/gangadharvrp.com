@@ -770,6 +770,10 @@
       grid-row: span 2;
     }
 
+    .gallery-card.wide {
+      grid-column: span 2;
+    }
+
     .gallery-card img {
       width: 100%;
       height: 100%;
@@ -779,6 +783,12 @@
 
     .gallery-card img.portrait-focus {
       object-position: center 16%;
+    }
+
+    .gallery-card img.visual-contain {
+      object-fit: contain;
+      background: #ffffff;
+      padding: 10px;
     }
 
     .gallery-card figcaption {
@@ -948,6 +958,10 @@
 
       .gallery-card.featured {
         grid-row: span 1;
+      }
+
+      .gallery-card.wide {
+        grid-column: span 1;
       }
 
       .hex-grid {
@@ -1348,6 +1362,11 @@
                 <li>Srinivas J.</li>
                 <li>Sunita Mishra</li>
                 <li>Durga Charan</li>
+                <li>Arhit Ray</li>
+                <li>Tarun Kumar K</li>
+                <li>Nikhila B.</li>
+                <li>Hari Hara S.</li>
+                <li>Prabir Sikdar</li>
               </ul>
             </aside>
           </div>
@@ -1379,6 +1398,38 @@
           <figure class="gallery-card">
             <img class="portrait-focus" src="gangadhar_photo.jpg" alt="Professional portrait of Gangadhar V. R. Pinapatruni">
             <figcaption>Professional profile</figcaption>
+          </figure>
+          <figure class="gallery-card">
+            <img src="gallery/iitk-research-group-moment.jpg" alt="Research group moment with collaborators at IIT Kharagpur">
+            <figcaption>Research group moments at IIT Kharagpur</figcaption>
+          </figure>
+          <figure class="gallery-card wide">
+            <img src="gallery/ucd-conference-visit.jpg" alt="Conference visit with collaborators at University College Dublin">
+            <figcaption>Conference visit at University College Dublin</figcaption>
+          </figure>
+          <figure class="gallery-card">
+            <img src="gallery/conference-collaborators-break.jpg" alt="Conference break with research collaborators">
+            <figcaption>Conference break with collaborators</figcaption>
+          </figure>
+          <figure class="gallery-card">
+            <img src="gallery/dublin-conference-visit.jpg" alt="Research collaborators during a Dublin conference visit">
+            <figcaption>Dublin conference visit</figcaption>
+          </figure>
+          <figure class="gallery-card wide">
+            <img src="gallery/student-collaborators-field-visit.jpg" alt="Field visit with student collaborators near the coast">
+            <figcaption>Field visit with student collaborators</figcaption>
+          </figure>
+          <figure class="gallery-card">
+            <img src="gallery/space-center-houston-visit.jpg" alt="Research travel group at Space Center Houston">
+            <figcaption>Research travel at Space Center Houston</figcaption>
+          </figure>
+          <figure class="gallery-card">
+            <img class="visual-contain" src="gallery/skin-friction-lines.png" alt="Skin-friction line pattern from flow visualization">
+            <figcaption>Skin-friction line pattern</figcaption>
+          </figure>
+          <figure class="gallery-card">
+            <img class="visual-contain" src="gallery/annotated-skin-friction-topology.png" alt="Annotated skin-friction topology from flow analysis">
+            <figcaption>Annotated skin-friction topology</figcaption>
           </figure>
         </div>
       </div>
