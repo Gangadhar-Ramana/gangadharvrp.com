@@ -752,7 +752,7 @@
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
       margin-top: 34px;
     }
@@ -895,10 +895,15 @@
       border: 1px solid rgba(255,255,255,0.14);
     }
 
-    .gallery-modal-item img {
+    .gallery-modal-item img,
+    .gallery-modal-item video {
       width: 100%;
       height: auto;
       display: block;
+    }
+
+    .gallery-modal-item video {
+      background: #000000;
     }
 
     .gallery-modal-item figcaption {
@@ -1022,7 +1027,8 @@
 
       .hero-metrics,
       .finding-grid,
-      .media-grid {
+      .media-grid,
+      .gallery-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
@@ -1504,6 +1510,16 @@
             </span>
             <span class="gallery-collage-caption">Research visuals <span>Open gallery collection</span></span>
           </button>
+          <button class="gallery-collage" type="button" data-gallery="lab" aria-label="Open lab and experiment gallery">
+            <span class="collage-grid" aria-hidden="true">
+              <img src="gallery/my-workplace.jpg" alt="">
+              <img src="gallery/working-with-piv.jpg" alt="">
+              <img src="gallery/tubercle-wings.jpg" alt="">
+              <img src="gallery/elliptical-wing-manufacturing.jpg" alt="">
+              <img src="gallery/piv-vorticity-snapshot.jpg" alt="">
+            </span>
+            <span class="gallery-collage-caption">Lab and experiments <span>Open gallery collection</span></span>
+          </button>
         </div>
       </div>
     </section>
@@ -1584,7 +1600,12 @@
           { src: "gallery/conference-collaborators-break.jpg", alt: "Conference break with my supervisor and colleagues", caption: "Conference break with my supervisor and colleagues" },
           { src: "gallery/dublin-conference-visit.jpg", alt: "EFDC conference visit", caption: "Dublin conference visit" },
           { src: "gallery/student-collaborators-field-visit.jpg", alt: "A moment with my team near the coast", caption: "A moment with my team near the coast" },
-          { src: "gallery/space-center-houston-visit.jpg", alt: "Space Center Houston with colleagues", caption: "Space Center Houston with colleagues" }
+          { src: "gallery/space-center-houston-visit.jpg", alt: "Space Center Houston with colleagues", caption: "Space Center Houston with colleagues" },
+          { src: "gallery/svec-student-group.jpg", alt: "Group photo with students at SVEC", caption: "Interaction with students at SVEC" },
+          { src: "gallery/svec-ansys-training-group.jpg", alt: "Group photo with students after ANSYS training at SVEC", caption: "ANSYS training session with SVEC students" },
+          { src: "gallery/prof-dash-prof-cameron-biahrl.jpg", alt: "Prof. Dash and Prof. Cameron in BIAHRL", caption: "Prof. Dash and Prof. Cameron in BIAHRL" },
+          { src: "gallery/prof-lua-prof-dash-lab.jpg", alt: "Prof. Lua and Prof. Dash during a lab visit", caption: "Prof. Lua and Prof. Dash during a lab visit" },
+          { src: "gallery/research-scholars-day-2025.jpg", alt: "Research Scholars Day 2025 group photo", caption: "Research Scholars Day 2025" }
         ]
       },
       research: {
@@ -1594,7 +1615,21 @@
           { src: "humpback_whale.jpg", alt: "Humpback whale bio-inspired reference", caption: "Bio-inspired design cue" },
           { src: "hairpin_vortex_structure.jpg", alt: "Hairpin vortex structure", caption: "Hairpin vortex structures" },
           { src: "gallery/skin-friction-lines.png", alt: "Skin-friction line pattern from flow visualization", caption: "The EYES on the tubercles", className: "visual-contain" },
-          { src: "gallery/annotated-skin-friction-topology.png", alt: "Annotated skin-friction topology from flow analysis", caption: "Skin-friction topology", className: "visual-contain" }
+          { src: "gallery/annotated-skin-friction-topology.png", alt: "Annotated skin-friction topology from flow analysis", caption: "Skin-friction topology", className: "visual-contain" },
+          { src: "gallery/water-tunnel-schematic.jpg", alt: "Schematic of the water tunnel facility", caption: "Water tunnel facility schematic", className: "visual-contain" },
+          { src: "gallery/piv-vorticity-snapshot.jpg", alt: "PIV vorticity snapshot for cylinder flow", caption: "PIV vorticity snapshot", className: "visual-contain" }
+        ]
+      },
+      lab: {
+        title: "Lab and experiments",
+        items: [
+          { src: "gallery/my-workplace.jpg", alt: "Research workspace with measurement equipment and computers", caption: "My workplace" },
+          { src: "gallery/working-with-piv.jpg", alt: "Working with PIV in the laboratory", caption: "Working with PIV" },
+          { src: "gallery/piv-cylinder.mp4", alt: "PIV cylinder experiment video", caption: "PIV cylinder experiment", type: "video" },
+          { src: "gallery/tubercle-wing-manufacturing.jpg", alt: "Manufacturing a tubercle wing model", caption: "Tubercle wing manufacturing" },
+          { src: "gallery/elliptical-wing-manufacturing.jpg", alt: "Elliptical wing model manufacturing", caption: "Elliptical wing manufacturing" },
+          { src: "gallery/elliptical-tubercle-wing.jpg", alt: "Elliptical tubercle wing model", caption: "Elliptical tubercle wing" },
+          { src: "gallery/tubercle-wings.jpg", alt: "Tubercle and baseline wing models", caption: "Tubercle wing models" }
         ]
       }
     };
@@ -1617,7 +1652,9 @@
       galleryModalTitle.textContent = gallery.title;
       galleryModalGrid.innerHTML = gallery.items.map((item) => `
         <figure class="gallery-modal-item">
-          <img src="${item.src}" alt="${item.alt}" class="${item.className || ""}">
+          ${item.type === "video"
+            ? `<video src="${item.src}" controls preload="metadata" aria-label="${item.alt}"></video>`
+            : `<img src="${item.src}" alt="${item.alt}" class="${item.className || ""}">`}
           <figcaption>${item.caption}</figcaption>
         </figure>
       `).join("");
